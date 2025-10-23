@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Comic+Neue:wght@700&display=swap');
+
+body {
+  margin: 0;
+  background: #fdf7f1;
+  font-family: 'Comic Neue', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* 🌸 Fade + Blur Entrance Animation */
+.fade-in {
+  animation: fadeIn 1.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* ✨ Smooth entrance for main sections */
+.card, .frame, .bouquet, #return-btn {
+  opacity: 0;
+  transform: translateY(20px);
+  filter: blur(5px);
+  animation: fadeUp 1.2s forwards;
+}
+
+.card { animation-delay: 0.2s; }
+.frame { animation-delay: 0.4s; }
+.bouquet { animation-delay: 0.6s; }
+#return-btn { animation-delay: 1s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* 💫 Bubble effect — fixed visibility + floating */
+.bubble {
+  position: absolute;
+  background: #fff1f1;
+  border: 2px solid #d44a4a;
+  border-radius: 25px;
+  padding: 10px 20px;
+  color: #7a2d2d;
+  font-size: 0.9em;
+  width: 220px;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+  
+  opacity: 0;
+  animation: bubblePop 0.8s ease-out forwards, floatBubble 4s ease-in-out infinite alternate;
+}
+
+@keyframes bubblePop {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(10px);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes floatBubble {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+
+/* Staggered bubble delays (popping one after another) */
+.top-left { top: 20px; left: -100px; animation-delay: 1.2s, 1.8s; }
+.mid-left { top: 120px; left: -120px; animation-delay: 1.4s, 2s; }
+.bottom-left { bottom: 40px; left: -80px; animation-delay: 1.6s, 2.2s; }
+.top-right { top: 20px; right: -100px; animation-delay: 1.8s, 2.4s; }
+.mid-right { top: 130px; right: -120px; animation-delay: 2s, 2.6s; }
+.bottom-right { bottom: 40px; right: -90px; animation-delay: 2.2s, 2.8s; }
+
+/* 💫 Gentle hover glow */
+.card:hover, .frame:hover {
+  box-shadow: 0 0 25px rgba(212, 74, 74, 0.4);
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
+
+/* 🌷 Button glow */
+#return-btn {
+  transition: all 0.3s ease;
+}
+
+#return-btn:hover {
+  box-shadow: 0 0 20px rgba(212, 74, 74, 0.4);
+  transform: translateY(-3px);
+}
+
+/* Card structure */
+.card {
+  background: #fffaf7;
+  width: 90%;
+  max-width: 800px;
+  border: 3px solid #d44a4a;
+  border-radius: 10px;
+  padding: 20px 30px 60px;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.title {
+  font-family: 'Comic Neue', cursive;
+  color: #d44a4a;
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px #f9dada;
+}
+
+.frame {
+  border: 3px solid #d44a4a;
+  border-radius: 12px;
+  padding: 30px;
+  position: relative;
+}
+
+.bouquet {
+  text-align: center;
+}
+
+.bouquet img {
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+.bouquet h2 {
+  font-family: 'Comic Neue', cursive;
+  color: #d44a4a;
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.bouquet p {
+  font-family: 'Comic Neue', cursive;
+  color: #b85757;
+  margin-top: 5px;
+  font-size: 1em;
+}
+
+/* Return button */
+#return-btn {
+  margin-top: 30px;
+  background: #d44a4a;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 25px;
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(212, 74, 74, 0.4);
+  transition: 0.3s;
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+}

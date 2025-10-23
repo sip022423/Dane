@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Comic+Neue:wght@700&display=swap');
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fffafc;
+  font-family: 'Comic Neue', cursive;
+}
+
+.container {
+  text-align: center;
+}
+
+/* For the “no thanks” crying character */
+.cute-img {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+h1 span {
+  color: #d8345f;
+  font-weight: bold;
+  font-size: 2em;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  padding: 10px 25px;
+  border: 2px solid #d8345f;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #d8345f;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #d8345f;
+  color: white;
+}
+
+.try-again {
+  border-color: #d8345f;
+  color: #d8345f;
+}
+
+.try-again:hover {
+  background-color: #d8345f;
+  color: white;
+}
+.fade-in {
+  animation: fadeIn 1.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}

@@ -1,0 +1,182 @@
+body {
+  background-color: #fff5f7;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Title text */
+.page-title {
+    font-family: 'Poppins', sans-serif;
+  font-size: 2.2em;
+  color: #e63946;
+  margin-bottom: 5px;
+  text-shadow: 0 0 10px rgba(230, 57, 70, 0.3);
+  text-align: center;
+}
+
+.subtitle {
+    font-family: 'Poppins', sans-serif;
+  color: #6b2737;
+  font-size: 1.1em;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* Grid layout */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 250px);
+  grid-template-rows: repeat(2, 250px);
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Card style */
+.card {
+  background-color: #fff;
+  border: 3px solid #ff6b81;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: #ff6b81;
+  border-radius: 25px;
+  padding: 15px;
+  box-shadow: 0 0 15px rgba(255, 107, 129, 0.2);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Card hover effect */
+.card:hover {
+  background-color: #ff6b81;
+  color: #fff;
+  box-shadow: 0 0 30px rgba(255, 107, 129, 0.5);
+  transform: scale(1.05);
+}
+
+/* Image placeholder */
+.card-img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 2px solid #ff6b81;
+  transition: all 0.3s ease;
+}
+
+.card:hover .card-img {
+  border-color: #fff;
+  opacity: 0.9;
+}
+
+/* Text inside cards */
+.header {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Button style */
+.App-button {
+  padding: 8px 20px;
+  background-color: transparent;
+  color: #ff6b81;
+  border: 2px solid #ff6b81;
+  border-radius: 5em;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.card:hover .App-button {
+  background-color: #fff;
+  color: #ff6b81;
+}
+
+/* Responsive grid for mobile */
+@media (max-width: 600px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}/* 🌸 Add a cute Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Comic+Neue:wght@700&display=swap');
+
+/* 🌈 Apply global styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff5f7;
+  overflow-y: auto; /* scrollable page */
+  margin: 0;
+  padding: 0;
+}
+
+/* 🫧 Fade and blur for page load */
+.fade-in {
+  animation: fadeIn 1.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* ✨ Make cards fade in one by one */
+.card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s forwards;
+  filter: blur(5px);
+}
+
+.card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.4s; }
+.card:nth-child(3) { animation-delay: 0.6s; }
+.card:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* 💖 Cute hover glow for cards */
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 107, 129, 0.5);
+  transition: all 0.3s ease;
+}
+
+/* 🎀 For your titles and headers */
+h1, h2, h3, .header {
+  font-family: 'Comic Neue', cursive;
+  color: #e63946;
+  text-shadow: 0 0 8px rgba(230, 57, 70, 0.2);
+}
+
+/* 🎁 Buttons glow softly when hovered */
+.App-button, .btn {
+  transition: all 0.3s ease;
+}
+
+.App-button:hover, .btn:hover {
+  box-shadow: 0 0 15px rgba(255, 107, 129, 0.4);
+  transform: translateY(-3px);
+}

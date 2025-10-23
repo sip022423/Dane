@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Comic+Neue:wght@700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Background setup */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f5f0;
+  background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+  background-repeat: repeat;
+  color: #333;
+  line-height: 1.7;
+  overflow-y: scroll;
+}
+
+/* Scrollable container */
+.letter-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 30px;
+  min-height: 100vh;
+  text-align: center;
+}
+
+/* Title */
+.title {
+  color: #c82333;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Message paragraphs */
+.message {
+  text-align: justify;
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+}
+
+/* Signature */
+.signature {
+  text-align: right;
+  font-style: italic;
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+
+/* Footer text */
+.footer-text {
+  font-size: 1.8rem;
+  color: #d22;
+  font-weight: bold;
+  border-top: 2px dashed #d22;
+  padding-top: 20px;
+  margin-top: 40px;
+}
+
+/* Return button */
+.return-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 25px;
+  border: 2px solid #d22;
+  color: #d22;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.return-btn:hover {
+  background-color: #d22;
+  color: #fff;
+}
+.fade-in {
+  animation: fadeIn 1.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}

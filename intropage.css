@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Comic+Neue:wght@700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: 'Comic Neue', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fffafc;
+}
+
+.container {
+  text-align: center;
+}
+
+.cute-img {
+  width: 100px;
+  margin-bottom: 15px;
+}
+
+h1 {
+    
+  font-size: 2.5em;
+  color: #333;
+  line-height: 1.3em;
+}
+
+h1 span {
+  color: #d8345f;
+  font-weight: bold;
+}
+
+p {
+  color: #555;
+  margin: 15px 0 25px;
+  font-size: 1.1em;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  padding: 10px 25px;
+  border: 2px solid #d8345f;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #d8345f;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #d8345f;
+  color: white;
+}
+
+.yes {
+  background-color: #d8345f;
+  color: white;
+}
+
+.yes:hover {
+  background-color: #b52349;
+}
+.fade-in {
+  animation: fadeIn 1.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}

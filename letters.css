@@ -8,6 +8,8 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  padding: 20px;
+  overflow-x: hidden;
 }
 
 /* 🌸 Fade + Blur Entrance Animation */
@@ -28,7 +30,7 @@ body {
   }
 }
 
-/* ✨ Smooth entrance for main sections */
+/* ✨ Smooth entrance */
 .card, .frame, .bouquet, #return-btn {
   opacity: 0;
   transform: translateY(20px);
@@ -49,21 +51,21 @@ body {
   }
 }
 
-/* 💫 Bubble effect — fixed visibility + floating */
+/* 🌸 Floating bubble styling */
 .bubble {
   position: absolute;
   background: #fff1f1;
   border: 2px solid #d44a4a;
   border-radius: 25px;
-  padding: 10px 20px;
+  padding: 8px 16px;
   color: #7a2d2d;
   font-size: 0.9em;
-  width: 220px;
+  width: 180px;
   text-align: center;
   box-shadow: 0 3px 6px rgba(0,0,0,0.05);
-  
   opacity: 0;
-  animation: bubblePop 0.8s ease-out forwards, floatBubble 4s ease-in-out infinite alternate;
+  animation: bubblePop 0.8s ease-out forwards, orbit 8s ease-in-out infinite alternate;
+  z-index: 0;
 }
 
 @keyframes bubblePop {
@@ -79,20 +81,25 @@ body {
   }
 }
 
-@keyframes floatBubble {
-  from { transform: translateY(0); }
-  to { transform: translateY(-10px); }
+/* 💫 Orbit-like floating motion */
+@keyframes orbit {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(5px, -10px) rotate(2deg); }
+  50% { transform: translate(-5px, 10px) rotate(-2deg); }
+  75% { transform: translate(6px, -8px) rotate(1deg); }
+  100% { transform: translate(-6px, 8px) rotate(-1deg); }
 }
 
-/* Staggered bubble delays (popping one after another) */
-.top-left { top: 20px; left: -100px; animation-delay: 1.2s, 1.8s; }
-.mid-left { top: 120px; left: -120px; animation-delay: 1.4s, 2s; }
-.bottom-left { bottom: 40px; left: -80px; animation-delay: 1.6s, 2.2s; }
-.top-right { top: 20px; right: -100px; animation-delay: 1.8s, 2.4s; }
-.mid-right { top: 130px; right: -120px; animation-delay: 2s, 2.6s; }
-.bottom-right { bottom: 40px; right: -90px; animation-delay: 2.2s, 2.8s; }
+/* 🫧 Position bubbles OUTSIDE card edges */
+.top-left { top: -20px; left: -120px; animation-delay: 1.2s, 1.8s; }
+.mid-left { top: 40%; left: -110px; animation-delay: 1.4s, 2s; } /* moved closer */
+.bottom-left { bottom: -30px; left: -100px; animation-delay: 1.6s, 2.2s; }
 
-/* 💫 Gentle hover glow */
+.top-right { top: -20px; right: -120px; animation-delay: 1.8s, 2.4s; }
+.mid-right { top: 40%; right: -110px; animation-delay: 2s, 2.6s; } /* moved closer */
+.bottom-right { bottom: -30px; right: -100px; animation-delay: 2.2s, 2.8s; }
+
+/* 💫 Hover glow */
 .card:hover, .frame:hover {
   box-shadow: 0 0 25px rgba(212, 74, 74, 0.4);
   transform: scale(1.02);
@@ -109,17 +116,19 @@ body {
   transform: translateY(-3px);
 }
 
-/* Card structure */
+/* 🌸 Card layout */
 .card {
   background: #fffaf7;
   width: 90%;
   max-width: 800px;
   border: 3px solid #d44a4a;
   border-radius: 10px;
-  padding: 20px 30px 60px;
+  padding: 20px 30px 80px;
   position: relative;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   text-align: center;
+  overflow: visible; /* bubbles can go outside */
+  z-index: 1;
 }
 
 .title {
@@ -135,26 +144,31 @@ body {
   border-radius: 12px;
   padding: 30px;
   position: relative;
+  background: #fff;
 }
 
 .bouquet {
   text-align: center;
+  position: relative;
+  z-index: 5;
 }
 
 .bouquet img {
-  width: 150px;
+  width: 160px;
+  max-width: 60%;
+  height: auto;
   margin-bottom: 10px;
+  position: relative;
+  z-index: 10; /* Always above bubbles */
 }
 
 .bouquet h2 {
-  font-family: 'Comic Neue', cursive;
   color: #d44a4a;
   margin: 0;
   font-size: 1.5em;
 }
 
 .bouquet p {
-  font-family: 'Comic Neue', cursive;
   color: #b85757;
   margin-top: 5px;
   font-size: 1em;
@@ -171,9 +185,60 @@ body {
   font-size: 1em;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(212, 74, 74, 0.4);
-  transition: 0.3s;
   position: absolute;
   bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
 }
+
+/* 📱 RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .card {
+    padding: 15px 20px 70px;
+  }
+
+  .bouquet img {
+    width: 130px;
+  }
+
+  .bubble {
+    font-size: 0.8em;
+    width: 150px;
+    padding: 6px 12px;
+  }
+
+  /* Move bubbles slightly closer for better readability */
+  .top-left { top: -10px; left: -90px; }
+  .mid-left { top: 45%; left: -80px; } /* closer */
+  .bottom-left { bottom: -20px; left: -80px; }
+
+  .top-right { top: -10px; right: -90px; }
+  .mid-right { top: 45%; right: -80px; } /* closer */
+  .bottom-right { bottom: -20px; right: -80px; }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.4em;
+  }
+
+  .bouquet img {
+    width: 110px;
+  }
+
+  .bubble {
+    font-size: 0.75em;
+    width: 120px;
+    padding: 5px 10px;
+  }
+
+  /* Keep bubbles close but outside the card */
+  .top-left { top: -8px; left: -65px; }
+  .mid-left { top: 50%; left: -60px; } /* closer */
+  .bottom-left { bottom: -15px; left: -60px; }
+
+  .top-right { top: -8px; right: -65px; }
+  .mid-right { top: 50%; right: -60px; } /* closer */
+  .bottom-right { bottom: -15px; right: -60px; }
+}
+
